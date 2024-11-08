@@ -10,6 +10,8 @@
 <hr>
 <p>🌿 每日任務 DAY 04</p>
 <ProductCard />
+<hr>
+🌿 <NuxtLink to="/news">每日任務 DAY 05 - 使用指令建立 Composables</NuxtLink>
 </div>
 
 </template>
