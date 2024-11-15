@@ -30,8 +30,8 @@ const roomList = ref(data.value.result);
 <div>
     <div class="row justify-content-between">
         <div
-        class="col-8 col-md-6 col-lg-4 g-3"
-        v-for="room in roomList" :key="room._id">
+            class="col-8 col-md-6 col-lg-4 g-3"
+            v-for="room in roomList" :key="room._id">
             <div class="card h-100 shadow-sm">
                 <img :src="room.imageUrl" class="card-img-top" alt="Room Image" />
                 <div class="card-body d-flex flex-column">
@@ -44,7 +44,7 @@ const roomList = ref(data.value.result);
                         <li><strong>價格：</strong>{{ room.price }}</li>
                     </ul>
                     <NuxtLink
-                        to="/room/_id"
+                        :to="`/room/${room._id}`"
                         v-slot="{ navigate }" :custom="true">
                         <button role="link" class="btn btn-secondary" @click="navigate">前往查看</button>
                     </NuxtLink>
