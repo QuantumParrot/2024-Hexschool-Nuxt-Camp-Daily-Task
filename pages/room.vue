@@ -2,8 +2,18 @@
 
 <template>
 
-<h1>挑選房型</h1>
+<NuxtPage />
 
 </template>
 
-<style scoped></style>
+<style scoped>
+
+.card-img-top {
+
+  object-fit: cover;
+  height: 200px;
+  max-width: 100%;
+
+}
+
+</style>
