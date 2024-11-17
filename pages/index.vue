@@ -16,6 +16,8 @@
 <p>🌿 每日任務 DAY 07 - 嵌套式路由、useRouter & useRoute</p>
 <p>🌿 每日任務 DAY 08 - 動態路由與 404 錯誤頁面處理</p>
 請點選 Navbar 的 “ 選擇房型 ”
+<hr>
+🌿 <NuxtLink to="/register">每日任務 DAY 09 - $fetch 與 ofetch</NuxtLink>
 </div>
 
 </template>

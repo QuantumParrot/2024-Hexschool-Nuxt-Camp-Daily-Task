@@ -21,6 +21,9 @@
                 <li class="nav-item">
                     <NuxtLink class="nav-link" to="/room">選擇房型</NuxtLink>
                 </li>
+                <li class="nav-item">
+                <NuxtLink class="nav-link" to="/register">註冊</NuxtLink>
+                </li>
             </ul>
         </div>
     </div>
