@@ -2,6 +2,10 @@
 
 const route = useRoute();
 
+const event = useRequestEvent();
+
+if (event) { setResponseStatus(event, 404, 'oops!') }
+
 </script>
 
 <template>
