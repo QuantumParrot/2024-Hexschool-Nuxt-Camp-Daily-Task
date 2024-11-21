@@ -1,8 +1,70 @@
 <script setup>
 
-const { data } = await useFetch('https://nuxr3.zeabur.app/api/v1/rooms');
+// useFetch
 
-const roomList = ref(data.value.result);
+const { data:roomList1 } = await useFetch('/rooms', {
+
+    baseURL: 'https://nuxr3.zeabur.app/api/v1',
+
+    transform: (res) => res.result, // 舊的寫法：const roomList = ref(data.value.result)
+
+    onResponseError: (err) => {
+
+        if (err.response) {
+
+            const { message } = err.response._data;
+            console.error(message);
+
+        }
+
+    },
+
+});
+
+// useAsyncData
+
+const { data:roomList2, execute } = await useAsyncData(
+
+    // key
+    
+    'getRoomList',
+
+    // handler
+
+    () => {
+
+        return $fetch('/rooms', {
+
+            baseURL: 'https://nuxr3.zeabur.app/api/v1',
+
+            onResponseError: (error) => {
+
+                if (error.response) {
+
+                    const { message } = error.response._data;
+                    console.error(message);
+
+                }
+
+            }
+
+        });
+
+    },
+
+    // options
+
+    {
+    
+        transform: (res) => res.result,
+        immediate: false,
+
+    }
+
+)
+
+
+// 原生 fetch API
 
 // const roomList = ref([]);
 
@@ -31,7 +93,7 @@ const roomList = ref(data.value.result);
     <div class="row justify-content-between">
         <div
             class="col-8 col-md-6 col-lg-4 g-3"
-            v-for="room in roomList" :key="room._id">
+            v-for="room in roomList1" :key="room._id">
             <div class="card h-100 shadow-sm">
                 <img :src="room.imageUrl" class="card-img-top" alt="Room Image" />
                 <div class="card-body d-flex flex-column">

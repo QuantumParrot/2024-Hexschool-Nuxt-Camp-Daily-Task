@@ -4,11 +4,61 @@ const route = useRoute();
 
 const router = useRouter();
 
-//
+// useFetch
 
-const { data } = await useFetch(`https://nuxr3.zeabur.app/api/v1/rooms/${route.params.id}`);
+// const { data:room } = await useFetch(`/rooms/${route.params.id}`, {
 
-const room = ref(data.value.result);
+//   baseURL: 'https://nuxr3.zeabur.app/api/v1',
+
+//   transform: res => res.result,
+
+//   onResponseError: err => {
+
+//     if (err.response) {
+
+//       const { message } = err.response._data;
+//       console.error(message);
+
+//     }
+
+//   }
+
+// });
+
+// useAsyncData
+
+const { data:room } = await useAsyncData(
+  
+    'room',
+
+    () => {
+      
+      return $fetch(`/rooms/${route.params.id}`, {
+
+        baseURL: 'https://nuxr3.zeabur.app/api/v1',
+
+        onResponseError: (error) => {
+
+          if (error.response) {
+
+            const { message } = error.response._data;
+            console.error(message);
+
+          }
+
+        }
+
+      });
+    
+    },
+
+    {
+
+      transform: (res) => res.result
+
+    }
+
+)
 
 const isProvide = (boolean) => boolean ? '提供' : '不提供';
 
