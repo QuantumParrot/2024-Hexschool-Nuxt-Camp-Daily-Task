@@ -25,7 +25,7 @@ useHead({
         {
             property: 'og:url',
             content: 'https://freyja.travel.com.tw/room',
-        }
+        },
         {
             name: 'twitter:card',
             content: 'summary_large_image',
@@ -45,6 +45,21 @@ useHead({
     ]
 
 })
+
+// useSeoMeta or useServerSeoMeta
+
+// useSeoMeta({
+//     title: 'Freyja | 房型列表 - useSeoMeta',
+//     description: '探索 Freyja 頂級房型，從景觀尊榮家庭房到尊爵雙人房，享受絕美市景與舒適空間。立即預訂，享受獨特的住宿體驗！ - useSeoMeta',
+//     ogTitle: 'Freyja | 高雄最頂級的旅館 - useSeoMeta',
+//     ogDescription: '探索 Freyja 的高雄頂級房型，從景觀尊榮家庭房到尊爵雙人房，享受絕美市景與舒適空間。立即預訂，享受獨特的住宿體驗！ - useSeoMeta',
+//     ogImage: 'https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-1.png - useSeoMeta',
+//     ogUrl: 'https://freyja.travel.com.tw/room - useSeoMeta',
+//     twitterCard: 'summary_large_image - useSeoMeta',
+//     twitterTitle: 'Freyja | 高雄最頂級的旅館 - useSeoMeta',
+//     twitterDescription: '探索 Freyja 的高雄頂級房型，從景觀尊榮家庭房到尊爵雙人房，享受絕美市景與舒適空間。立即預訂，享受獨特的住宿體驗！ - useSeoMeta',
+//     twitterImage: 'https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-1.png - useSeoMeta',
+// });
 
 // useFetch
 
