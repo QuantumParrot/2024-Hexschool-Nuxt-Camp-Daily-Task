@@ -62,6 +62,29 @@ const { data:room } = await useAsyncData(
 
 const isProvide = (boolean) => boolean ? '提供' : '不提供';
 
+// useSeoMeta & useServerSeoMeta
+
+useHead({
+  
+  titleTemplate: (titleChunk) => `Freyja | ${titleChunk}`,
+
+});
+
+useSeoMeta({
+
+  title: room.value.name,
+  description: () => `${room.value.description}`,
+  ogTitle: () => `Freyja | ${room.value.name}`,
+  ogDescription: () => `${room.value.description}`,
+  ogImage: () => `${room.value.imageUrl}`,
+  ogUrl: () => `https://freyja.travel.com.tw/room/${room.value._id}`,
+  twitterTitle: () => `Freyja | ${room.value.name}`,
+  twitterDescription: () => `${room.value.description}`,
+  twitterImage: () => `${room.value.imageUrl}`,
+  twitterCard: 'summary_large_image',
+
+});
+
 </script>
 
 <template>
