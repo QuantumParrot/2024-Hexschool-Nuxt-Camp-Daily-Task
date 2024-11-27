@@ -62,13 +62,13 @@ const { data:room } = await useAsyncData(
 
 const isProvide = (boolean) => boolean ? '提供' : '不提供';
 
-// useSeoMeta & useServerSeoMeta
+// useHead & useSeoMeta
 
-useHead({
+// useHead({
   
-  titleTemplate: (titleChunk) => `Freyja | ${titleChunk}`,
+//   titleTemplate: (titleChunk) => `Freyja | ${titleChunk}`,
 
-});
+// });
 
 useSeoMeta({
 
@@ -85,9 +85,36 @@ useSeoMeta({
 
 });
 
+// use SEO component
+
+const title = computed(() => `Freyja | ${room.value.name} | use SEO Component version`);
+
+const url = computed(() => `https://freyja.travel.com.tw/room/${room.value._id}`);
+
 </script>
 
 <template>
+
+<Head>
+    <Title>{{ title }}</Title>
+    <Meta name="description" :content="room.description" />
+    <Meta
+      property="og:title" :content="title" />
+    <Meta
+      property="og:description" :content="room.description" />
+    <Meta
+      property="og:image" :content="room.imageUrl" />
+    <Meta
+      property="og:url" :content="url" />
+    <Meta
+      name="twitter:title" :content="title" />
+    <Meta
+      name="twitter:description" :content="room.description" />
+    <Meta
+      name="twitter:image" :content="room.imageUrl" />
+    <Meta
+      name="twitter:card" content="summary_large_image" />
+</Head>
 
 <div class="text-center mb-3">
     <button
