@@ -16,13 +16,24 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <NuxtLink class="nav-link" to="/">首頁</NuxtLink>
+                    <NuxtLink class="nav-link" to="/">
+                    首頁
+                    </NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink class="nav-link" to="/room">選擇房型</NuxtLink>
+                    <NuxtLink class="nav-link" to="/room">
+                    選擇房型
+                    </NuxtLink>
                 </li>
                 <li class="nav-item">
-                <NuxtLink class="nav-link" to="/register">註冊</NuxtLink>
+                    <NuxtLink class="nav-link" to="/register">
+                    註冊
+                    </NuxtLink>
+                </li>
+                <li class="nav-item">
+                    <NuxtLink class="nav-link" to="/login">
+                    登入
+                    </NuxtLink>
                 </li>
             </ul>
         </div>

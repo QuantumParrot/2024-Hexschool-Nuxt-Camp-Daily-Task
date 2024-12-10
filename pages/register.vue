@@ -17,6 +17,8 @@ const userData = ref({
 
 });
 
+const isFetching = ref(false);
+
 const clearForm = () => {
 
   userData.value = { address: {} }
@@ -85,11 +87,15 @@ const { execute:registerMember } = await useAsyncData(
 
 const processRegistration = async () => {
 
+  if (isFetching.value) return;
+
+  isFetching.value = true;
+
   try {
 
-    const response = await $fetch('/v1/user/signup', {
+    const response = await $fetch('/users/sign_up', {
 
-      baseURL: 'https://nuxr3.zeabur.app/api',
+      baseURL: 'https://todolist-api.hexschool.io',
       method: 'POST',
       body: {
 
@@ -112,11 +118,13 @@ const processRegistration = async () => {
 
     clearForm();
 
+    return response;
+
   } catch(error) {
 
     if (error.response._data) {
 
-      await $swal.fire({
+      return await $swal.fire({
 
         icon: 'warning',
         text: error.response._data.message,
@@ -131,7 +139,7 @@ const processRegistration = async () => {
 
     throw new Error(error);
 
-  }
+  } finally { isFetching.value = false; }
 
 };
 
@@ -141,7 +149,7 @@ const processRegistration = async () => {
 
 <template>
 
-<div class="bg-light py-3 py-md-5 vh-100">
+<div class="bg-light py-3 py-md-5">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
@@ -218,7 +226,7 @@ const processRegistration = async () => {
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-lg btn-secondary w-100" type="submit">註冊</button>
+                        <button class="btn btn-lg btn-secondary w-100" type="submit" :disabled="isFetching">註冊</button>
                     </form>
                 </div>
             </div>
