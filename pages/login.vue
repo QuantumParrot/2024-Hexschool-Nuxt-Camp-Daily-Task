@@ -2,6 +2,8 @@
 
 const { $swal } = useNuxtApp();
 
+const router = useRouter();
+
 const loginFormData = ref({
 
     // 測試用資料
@@ -117,6 +119,8 @@ const { execute:handleLoginProcess } = await useAsyncData('login', () => {
                     showConfirmButton: false,
 
                 });
+
+                router.replace('/admin');
 
             }
 

@@ -35,6 +35,11 @@
                     登入
                     </NuxtLink>
                 </li>
+                <li class="nav-item">
+                    <NuxtLink class="nav-link" to="/admin">
+                    後台
+                    </NuxtLink>
+                </li>
             </ul>
         </div>
     </div>
